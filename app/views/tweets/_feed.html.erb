@@ -7,34 +7,34 @@
 			</p>
 		</figure>
 		<div class="media-content">
-			 <%= render 'tweets/form' %>
+			 <%= render 'tweeets/form' %>
 		</div>
 	</article>
   <% end %>
-<% @tweets.each do | tweet | %>
+<% @tweeets.each do | tweeet | %>
   <div class="box">
   	<article class="media">
   		<div class="media-left">
   			<figure class="image is-64x64">
-  				<%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
+  				<%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
   			</figure>
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= tweet.user.name %></strong><br />
-  				<small><%= tweet.user.username %></small><br/>
-  				<p><%= tweet.tweet %></p>
+  				<strong><%= tweeet.user.name %></strong><br />
+  				<small><%= tweeet.user.username %></small><br/>
+  				<p><%= tweeet.tweeet %></p>
   			</div>
-        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <% if user_signed_in? && current_user.id == tweeet.user_id %>
   			<nav class="level">
   				<div class="level-left is-mobile">
-  					<%= link_to tweet, class: "level-item" do %>
+  					<%= link_to tweeet, class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
   					<% end %>
-  					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+  					<%= link_to edit_tweeet_path(tweeet), class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
   					<% end %>
-  					<%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
+  					<%= link_to tweeet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do %>
   							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
   					<% end %>
   				</div>
